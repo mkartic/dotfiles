@@ -1,0 +1,21 @@
+#!/bin/sh
+lock() {
+  i3lock -ti $(find ~/Wallpapers/ -type f -name "*png*" | shuf | head -1)
+}
+
+case "$1" in
+    lock)
+        lock
+        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        systemctl poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        exit 2
+esac
+
+exit 0
