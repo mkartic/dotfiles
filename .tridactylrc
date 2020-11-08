@@ -1,0 +1,20 @@
+bind ;c hint -Jc [class*="expand"],[class="togg"],[class="comment_folder"]
+bind d composite tab #; tabclose #
+bind D tabclose
+
+set smoothscroll true
+
+" The default jump of 10 is a bit much.
+bind j scrollline 5
+bind k scrollline -5
+
+" K and J should move between tabs. x should close them.
+bind J tabprev
+bind K tabnext
+
+set allowautofocus false
+" Just use chars under your finger for hints.
+set hintchars fdsajklgh
+
+" Set search URLs here for ease of use.
+set searchurls.aw https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s
