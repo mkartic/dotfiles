@@ -13,7 +13,17 @@
 ** General
 *** DNS
     - using systemd-resolved
-    - Using nextdns. Get config text from next dns site.
+    - Using nextdns. Get config text from next dns site
+** Audio
+*** When ps4 joystick pretends to sink sound.
+pactl list short sources
+pactl list
+pactl info
+pactl set-card-profile 10 off
+pactl set-card-profile 1 output:analog-stereo
+pactl set-card-profile 2 output:analog-stereo
+pactl list short cards
+
 * General notes
 ** Emacs
 *** System Crafters videos
