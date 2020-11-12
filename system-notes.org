@@ -20,3 +20,6 @@
     Start emacs without any config. emacs -q
     Start emacs with specified config file: emacs -l some.el
 *** This file will exist as part of my dotfiles repo.
+** Mounting Disks
+udiskie installed.
+99-udisks2.rules added to /etc/udev/rules.d.
