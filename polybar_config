@@ -1,0 +1,136 @@
+[colors]
+	bar_bg = ${xrdb:color0}
+	bar_fg = ${xrdb:color7}
+
+	border_col = ${xrdb:color0}
+
+	modules_bg = ${xrdb:color7}
+	modules_fg = ${xrdb:color0}
+
+	mod_bg = ${xrdb:color7}
+
+	modules_prefix_bg = ${xrdb:color7}
+	modules_prefix_fg = ${xrdb:color0}
+
+	urgent_bg  = ${xrdb:color1}
+	focused_bg = ${xrdb:color10}
+
+	essid_p_bg   = ${xrdb:color6}
+	down_p_bg    = #5e606c
+	cpu_p_bg     = ${xrdb:color5}
+	ram_p_bg     = ${xrdb:color11}
+	vol_p_bg     = #637b81
+	bright_p_bg  = #c29f6f
+	battery_p_bg = ${xrdb:color9}
+	time_p_bg    = ${xrdb:color10}
+[bar/base]
+	dpi      = 0 ;Let polybar calculate this.
+	width    = 100%
+	height   = 22
+	offset-x = 0
+	offset-y = 0
+
+	background = ${colors.bar_bg}
+	foreground = ${colors.bar_fg}
+
+	border-top-size     = 5
+	border-bottom-size  = 5
+	border-top-color    = ${colors.bar_bg}
+	border-bottom-color = ${colors.bar_bg}
+
+	spacing            = 0
+	padding-left       = 2
+	padding-right      = 1
+	module-margin-left = 2
+
+	font-0 = "Misc Tamsyn:pixelsize=12;0"
+	font-1 = "Roboto:size=11:weight=bold;2"
+	font-2 = "Noto Sans Symbols2:size=11;1"
+	font-3 = "FontAwesome:size=12;1"
+
+	modules-left   = workspaces
+	modules-right  = volume date
+
+	fixed-center = true
+[module/workspaces]
+
+	type            = internal/i3
+	format          = <label-state> <label-mode>
+	index-sort      = true
+	wrapping-scroll = false
+	strip-wsnumbers = true
+
+	label-mode-background = ${colors.modules_bg}
+	label-mode-foreground = ${colors.modules_prefix_fg}
+	label-mode-padding    = 1
+
+	label-focused            = %name%
+	label-focused-background = ${colors.focused_bg}
+	label-focused-foreground = ${colors.modules_fg}
+	label-focused-padding    = 1
+
+	label-unfocused            = %name%
+	label-unfocused-background = ${colors.modules_bg}
+	label-unfocused-foreground = ${colors.modules_prefix_fg}
+	label-unfocused-padding    = 1
+
+	label-visible            = %name%
+	label-visible-background = ${colors.modules_bg}
+	label-visible-foreground = ${colors.modules_prefix_fg}
+	label-visible-padding    = 1
+
+	label-urgent            = %name%
+	label-urgent-background = ${xrdb:color1}
+	label-urgent-foreground = ${colors.modules_prefix_bg}
+	label-urgent-padding    = 1
+
+[module/date]
+	type     = internal/date
+	interval = 1.0
+	date     =
+	date-alt =  [ %a %d, %b |
+	time     = "%a %I:%M %p "
+	time-alt = %H:%M:%S %p ]
+	label    = %date% %time%
+
+	format         = <label>
+	format-padding = 0
+
+	format-prefix            = 
+	format-prefix-background = ${colors.time_p_bg}
+	format-prefix-foreground = ${colors.modules_prefix_fg}
+	format-prefix-padding    = 1
+
+	label-background = ${colors.modules_bg}
+	label-foreground = ${colors.modules_fg}
+	label-padding    = 0
+[module/volume]
+	type          = internal/alsa
+	format-volume = <label-volume>
+
+	format-volume-prefix            = 🔊
+	format-volume-prefix-background = ${colors.ram_p_bg}
+	format-volume-prefix-foreground = ${colors.modules_prefix_fg}
+	format-volume-prefix-padding    = 1
+
+	label-volume            = %percentage%%
+	label-volume-background = ${colors.modules_bg}
+	label-volume-foreground = ${colors.modules_fg}
+	label-volume-padding    = 1
+
+	format-muted = <label-muted>
+
+	format-muted-prefix            = 🔇
+	format-muted-prefix-padding    = 1
+	format-muted-prefix-background = ${colors.ram_p_bg}
+	format-muted-prefix-foreground = ${colors.modules_prefix_fg}
+
+	label-muted = 0%
+	label-muted-foreground = ${colors.modules_fg}
+	label-muted-background = ${colors.modules_bg}
+	label-muted-padding    = 1
+
+	format-volume-padding = 0
+	format-muted-padding  = 0
+
+	ramp-headphones-0 = 
