@@ -43,13 +43,18 @@
 	padding-right      = 1
 	module-margin-left = 2
 
-	font-0 = "Misc Tamsyn:pixelsize=12;0"
-	font-1 = "Roboto:size=11:weight=bold;2"
-	font-2 = "Noto Sans Symbols2:size=11;1"
-	font-3 = "FontAwesome:size=12;1"
+	tray-position=right
+
+	# font-0 = "Misc Tamsyn:pixelsize=12;0"
+	font-0 = "Fira Sans:pixelsize=14;0"
+	# font-1 = "Roboto:size=15:weight=bold;2"
+	font-1 = "FontAwesome:size=12;1"
+	font-2 = "Noto Sans Symbols2:size=12;1"
+	font-3 = "DejaVu Sans Condensed:size=14;1"
+	font-4 = "Source Code Pro:weight=Bold:size=14;1"
 
 	modules-left   = workspaces
-	modules-right  = volume date
+	modules-right  = cmus wireless-network volume date
 
 	fixed-center = true
 [module/workspaces]
@@ -134,3 +139,84 @@
 	format-muted-padding  = 0
 
 	ramp-headphones-0 = 
+[module/memory]
+	type = internal/memory
+	interval = 3
+	format = <label>
+	label = %percentage_used%
+	label-background = ${colors.modules_bg}
+	label-foreground = ${colors.modules_fg}
+
+[module/wireless-network]
+    type = internal/network
+    interface = wlo1
+    ; Available tags:
+    ;   <label-connected> (default)
+    ;   <ramp-signal>
+    format-connected = <ramp-signal> <label-connected>
+
+    ; Available tags:
+    ;   <label-disconnected> (default)
+    format-disconnected = <label-disconnected>
+
+    ; Available tags:
+    ;   <label-connected> (default)
+    ;   <label-packetloss>
+    ;   <animation-packetloss>
+    format-packetloss = <animation-packetloss> <label-connected>
+
+    ; All labels support the following tokens:
+    ;   %ifname%    [wireless+wired]
+    ;   %local_ip%  [wireless+wired]
+    ;   %local_ip6% [wireless+wired]
+    ;   %essid%     [wireless]
+    ;   %signal%    [wireless]
+    ;   %upspeed%   [wireless+wired]
+    ;   %downspeed% [wireless+wired]
+    ;   %linkspeed% [wired]
+
+    ; Default: %ifname% %local_ip%
+    label-connected = %downspeed%
+    ; label-connected-foreground = #eefafafa
+    label-connected-background = ${colors.modules_bg}
+    label-connected-foreground = ${colors.modules_fg}
+
+    ; Default: (none)
+    label-disconnected = not connected
+    label-disconnected-foreground = #66ffffff
+
+    ; Default: (none)
+    ;label-packetloss = %essid%
+    ;label-packetloss-foreground = #eefafafa
+
+    ; Only applies if <ramp-signal> is used
+    ramp-signal-background = ${colors.essid_p_bg}
+    ramp-signal-foreground = ${colors.modules_prefix_fg}
+    ramp-signal-0 = 😱
+    ramp-signal-1 = 😠
+    ramp-signal-2 = 😒
+    ramp-signal-3 = 😊
+    ramp-signal-4 = 😃
+    ramp-signal-5 = 😈
+
+    ; Only applies if <animation-packetloss> is used
+    animation-packetloss-0 = ⚠
+    animation-packetloss-0-foreground = #ffa64c
+    animation-packetloss-1 = 📶
+    animation-packetloss-1-foreground = #000000
+    ; Framerate in milliseconds
+    animation-packetloss-framerate = 500
+[module/cmus]
+    type = custom/text
+
+    # exec = ~/.config/polybar/cmus.sh
+    # exec-if = pgrep -x cmus
+    # interval = 1
+
+    click-left = cmus-remote --next
+    click-right = cmus-remote --prev
+    click-middle = cmus-remote --pause
+    scroll-up = cmus-remote --volume +5%
+    scroll-down = cmus-remote --volume -5%
+
+    content = 🎵
