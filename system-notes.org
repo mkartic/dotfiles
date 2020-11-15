@@ -15,6 +15,7 @@
     - using systemd-resolved
     - Using nextdns. Get config text from next dns site
 ** Audio
+https://shallowsky.com/linux/pulseaudio-command-line.html
 *** When ps4 joystick pretends to sink sound.
 pactl list short sources
 pactl list
