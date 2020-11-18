@@ -51,7 +51,7 @@ alias pup="sudo pacman -Syyu"
 alias ,ytdl="(cd /mnt/c/Users/km4/my-stuff/Listen && youtube-dl -i -x -a /mnt/c/Users/km4/my-stuff/yturls.txt --download-archive ~/ytdl_archives)"
 alias t=tmux
 alias e=emacs
-alias ls=exa
+alias ls="exa -a "
 # Have to install z.sh and fzf.
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

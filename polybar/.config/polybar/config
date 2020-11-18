@@ -54,7 +54,7 @@
 	font-4 = "Source Code Pro:weight=Bold:size=14;1"
 
 	modules-left   = workspaces
-	modules-right  = cmus wireless-network volume date
+	modules-right  = cmus memory wireless-network volume date
 
 	fixed-center = true
 [module/workspaces]
