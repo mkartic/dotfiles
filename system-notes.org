@@ -24,6 +24,16 @@ pactl set-card-profile 10 off
 pactl set-card-profile 1 output:analog-stereo
 pactl set-card-profile 2 output:analog-stereo
 pactl list short cards
+** AUR/makepkg
+Some issue with compiling GCC 10+ compiler. 
+fix: Add '-fcommon' to CFLAGS in /etc/makepkg.conf
+** nVidia Sheninigans
+So one fine day, X stops loading complaining that nvidia module isn't loaded. 
+Had to install nvidia-dkms package instead of nvidia for GPU drivers. The 'DKMS' bit recompiles the module to go into the kernel. With just the nvidia package, a new module wasn't being generated for 5.9.11 kernel.
+pacman -Ql nvidia
+modinfo nvidia
+modprobe
+
 
 * General notes
 ** Emacs
@@ -34,3 +44,9 @@ pactl list short cards
 ** Mounting Disks
 udiskie installed.
 99-udisks2.rules added to /etc/udev/rules.d.
+** Hibernation
+/ is mounted on /dev/sda2. UUID: e5f5ad45-39e6-438d-9a6b-7f1efdc3667d ( blkid )
+2893824 - File offset of /swapfile ( Found with filefrag or swap-offset )
+Install https://wiki.archlinux.org/index.php/Uswsusp
+- /etc/suspend.conf
+Configure mkinitcpio.conf to include uresume and rebuild initramfs. (mkinitcpio -P )
