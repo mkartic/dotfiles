@@ -42,8 +42,9 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 
-alias -g C='| wc -l'
 alias -g EG='|& egrep'
+alias -g G='| grep'
+alias -g L='| wc -l'
 alias s="sudo "
 alias ,p="pacman "
 alias ,ps="pacman -Ss "
@@ -52,6 +53,7 @@ alias ,ytdl="(cd /mnt/c/Users/km4/my-stuff/Listen && youtube-dl -i -x -a /mnt/c/
 alias t=tmux
 alias e=emacs
 alias ls="exa -a "
+alias dfh="df -h /dev/sd??"
 # Have to install z.sh and fzf.
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -63,3 +65,7 @@ PERL5LIB="/home/mkartic/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5L
 PERL_LOCAL_LIB_ROOT="/home/mkartic/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/mkartic/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/mkartic/perl5"; export PERL_MM_OPT;
+
+export GUIX_PROFILE="$HOME/.guix-profile"
+export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
+. "$GUIX_PROFILE/etc/profile"
