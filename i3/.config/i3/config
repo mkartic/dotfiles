@@ -42,6 +42,9 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym F1 exec /home/mkartic/urxvtq
+bindsym F2 exec emacsclient -c
+bindsym F3 exec emacsclient -c ~/scratch.org
 
 # kill focused window
 bindsym $mod+Shift+q kill
