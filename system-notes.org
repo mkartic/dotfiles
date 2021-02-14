@@ -50,3 +50,24 @@ udiskie installed.
 Install https://wiki.archlinux.org/index.php/Uswsusp
 - /etc/suspend.conf
 Configure mkinitcpio.conf to include uresume and rebuild initramfs. (mkinitcpio -P )
+** Browsing and transfering files from phone
+- Make sure ADB mode is disabled on phone. (Or just use some adb commands. )
+- Connect in MTP mode from phone.
+- Use go-mtpfs-git AUR package
+- `go-mtpfs mnt` - To mount it at /path/to/mnt.
+** Media
+*** mpv
+Play videos in a smaller 'Picture in Picture' mode. (This is particularly useful when I'm working out while watching something. )
+#+begin_src shell
+mpv --ontop --no-border --autofit=384x216 --geometry=99%:2% [file]
+mpv --ontop --no-border --on-all-workspaces --autofit=384x216 --geometry=99%:2% [file]
+#+end_src
+** Tailscale (VPN of sorts)
+- This needs tunnel kernel module (modprobe tun). 
+- Install networkmanager-vpnc to obtain it. On further analysis, not sure if this is needed.
+- System needs a reboot after install all the packages.
+- FOllow instructions in tailscale webpage. There's an AUR package. 
+** Backups (Using borg)
+s borg create --stats --one-file-system -C zstd,22 --progress --exclude-from /home/mkartic/dotfiles/borg_backup_root_ignore.txt root::Feb13_2021 /
+
+

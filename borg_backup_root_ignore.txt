@@ -1,0 +1,4 @@
+/swapfile
+/var/log/journal*
+/var/cache/*
+/usr/share*

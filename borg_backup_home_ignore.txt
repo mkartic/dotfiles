@@ -1,0 +1,10 @@
+/home/mkartic/.cache
+/home/mkartic/.cargo
+/home/mkartic/Listen
+/home/mkartic/.local
+/home/mkartic/Downloads
+/home/mkartic/my-stuff
+/home/mkartic/dump
+/home/mkartic/.cache
+/home/mkartic/parenting-tips
+
